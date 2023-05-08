@@ -37,7 +37,7 @@ export async function getStaticProps() {
     body: JSON.stringify({
       query: `
         query {
-          pageBy(uri: "https://project7m.com/") {
+          pageBy(uri: "https://project7m.com/ai-unveiled-illuminating-the-realm-of-intelligent-machines/") {
             title
             content
             featuredImage {
