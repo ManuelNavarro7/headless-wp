@@ -6,7 +6,6 @@ import parse from "html-react-parser";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ page }) {
-  // let Title = data.pageBy.title;
   // console.log(page.content);
   // console.log(JSON.parse(page.content));
   return (
@@ -21,7 +20,7 @@ export default function Home({ page }) {
       <main>
         <h1>{page.title}</h1>
 
-        <div>{parse(page.content)}</div>
+        <div className={styles.MainTitle}>{parse(page.content)}</div>
       </main>
     </>
   );
