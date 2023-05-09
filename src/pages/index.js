@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ page }) {
   // let Title = data.pageBy.title;
-  console.log(page.content);
+  // console.log(page.content);
   // console.log(JSON.parse(page.content));
   return (
     <>
