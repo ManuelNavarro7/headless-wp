@@ -1,13 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+// import styles from "@/styles/Home.module.css";
+
 import parse from "html-react-parser";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ page }) {
-  // console.log(page.content);
-  // console.log(JSON.parse(page.content));
+  const newArray = parse(page.content)
+    .filter((item) => typeof item === "object") // Filter out non-object elements
+    .map((item) => ({
+      type: item.type,
+      text: item.props.children,
+    }));
+
+  // console.log(newArray);
+
   return (
     <>
       <Head>
@@ -19,8 +27,16 @@ export default function Home({ page }) {
 
       <main>
         <h1>{page.title}</h1>
-
-        <div className={styles.MainTitle}>{parse(page.content)}</div>
+        {/* <h2>{h2}</h2> */}
+        <h2>{newArray[0].text}</h2>
+        <Image
+          src="http://project7m.com/wp-content/uploads/2023/05/ImgTestPrompt.jpeg"
+          alt="Test"
+          width="300"
+          height="300"
+        ></Image>
+        <p>{newArray[1].text}</p>
+        <p>{newArray[2].text}</p>
       </main>
     </>
   );
